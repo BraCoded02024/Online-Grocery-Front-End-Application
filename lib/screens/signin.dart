@@ -23,7 +23,7 @@ class SignInScreen extends StatelessWidget {
                   children: [
                     // The image is shifted and then rotated
                     Positioned(
-                      top: -200.84, // Exact Figma offset
+                      top: -190.84, // Exact Figma offset
                       left: -200.66, // Exact Figma offset
                       child: Transform.rotate(
                         angle: 230.29 * (math.pi / 180),
@@ -36,18 +36,60 @@ class SignInScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ],
+                    Positioned(
+                      top: 65,
+                      left: 300.59,
+                      child: Transform.rotate(
+                        angle: 230.00 * (math.pi / 180),
+                        child: SizedBox(
+                          width: 65,
+                          height: 19.31,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                              ClipRect(
+                                child: Transform.rotate(
+                                  angle: 150.00 * (math.pi / 180),
+                                  child: Image.asset(
+                                    'assets/images/redcarrots.png',
+                                    width: 14,
+                                    height: 12,
+                                    // color: Colors.red.withOpacity(0.8),
+                                    colorBlendMode: BlendMode.hardLight,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 1),
+                              Text(
+                                'nectar',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  letterSpacing: 0.5,
+                                  foreground: Paint()
+                                    ..color = Colors.black.withOpacity(0.8)
+                                    ..blendMode = BlendMode.hardLight,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                      )],
                 ),
               ),
             ),
           ),
-          
+
           // Main Scrollable Content
           SingleChildScrollView(
             child: Column(
               children: [
                 const SizedBox(height: 374.45), // Match Frame Height + Offset
-                
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Column(
@@ -104,9 +146,9 @@ class SignInScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      
+
                       const SizedBox(height: 40),
-                      
+
                       const Center(
                         child: Text(
                           'Or connect with social media',
@@ -121,6 +163,7 @@ class SignInScreen extends StatelessWidget {
 
                       // Google Button
                       _buildSocialButton(
+                        context: context,
                         text: 'Continue with Google',
                         color: const Color(0xFF5383EC),
                         icon: Icons.g_mobiledata,
@@ -129,6 +172,7 @@ class SignInScreen extends StatelessWidget {
 
                       // Facebook Button
                       _buildSocialButton(
+                        context: context,
                         text: 'Continue with Facebook',
                         color: const Color(0xFF4A66AC),
                         icon: Icons.facebook,
@@ -149,30 +193,36 @@ class SignInScreen extends StatelessWidget {
     required String text,
     required Color color,
     required IconData icon,
+    required BuildContext context,
   }) {
-    return Container(
-      width: double.infinity,
-      height: 67,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(19),
-      ),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Positioned(
-            left: 30,
-            child: Icon(icon, color: Colors.white, size: 30),
-          ),
-          Text(
-            text,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushReplacementNamed(context, '/number_entry');
+      },
+      child: Container(
+        width: double.infinity,
+        height: 67,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(19),
+        ),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Positioned(
+              left: 30,
+              child: Icon(icon, color: Colors.white, size: 30),
             ),
-          ),
-        ],
+            Text(
+              text,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

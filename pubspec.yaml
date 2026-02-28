@@ -62,6 +62,13 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/images/selectlocation.png
+    - assets/images/homeimages/
+    - assets/images/exploreimages/
+    - assets/images/beveragesimages/
+    - assets/images/searchimages/
+    - assets/images/mycartimages/
+    - assets/images/favouritesimages/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

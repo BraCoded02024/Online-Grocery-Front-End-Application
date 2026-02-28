@@ -16,7 +16,7 @@ class OnboardingScreen extends StatelessWidget {
             fit: BoxFit.cover,
             alignment: const Alignment(0.1, 0.0),
           ),
-          
+
           // Elements Overlay
           Positioned(
             top: 485.26,
@@ -33,7 +33,7 @@ class OnboardingScreen extends StatelessWidget {
                   fit: BoxFit.contain,
                 ),
                 const SizedBox(height: 35),
-                
+
                 // Welcome Text
                 const Text(
                   'Welcome\nto our store',
@@ -46,7 +46,7 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10),
-                
+
                 // Subtitle
                 const Text(
                   'Get your groceries in as fast as one hour',
@@ -56,7 +56,7 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40),
-                
+
                 // Get Started Button
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
